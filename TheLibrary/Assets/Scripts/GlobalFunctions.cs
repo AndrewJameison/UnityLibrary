@@ -2,17 +2,17 @@ using UnityEngine;
 
 public static class Global
 {
-    public void Pause()
+    public static void Pause()
     {
         
     }
 
-    public void WaitUntilNotNull(object obj)
+    public static void WaitUntilNotNull(object obj)
     {
-        while (obj == null)
-        {
-            yield return null;
-        }
+        //while (obj == null)
+        //{
+        //    yield return null;
+        //}
 
         // TODO: pass in function to call after object is not null
     }
