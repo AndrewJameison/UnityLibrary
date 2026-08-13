@@ -24,6 +24,9 @@ public class Structure : MonoBehaviour, IInteractable
     private float _holdTime = 0.0f;
     public float HoldTime { get => _holdTime; }
 
+    [SerializeField]
+    private float _highlightSize = 1.05f;
+
     // TODO: move all this highlight stuff to its own separate script for cleanliness
     [Tooltip("A function from another object that should be affected when this interactable is clicked on")]
     [SerializeField]
@@ -84,7 +87,7 @@ public class Structure : MonoBehaviour, IInteractable
         {
             _highlightMat.color = _highlightColor;
 
-            _highlightMat.SetFloat("_Thickness", 1.05f);
+            _highlightMat.SetFloat("_Thickness", _highlightSize);
         }
     }
 

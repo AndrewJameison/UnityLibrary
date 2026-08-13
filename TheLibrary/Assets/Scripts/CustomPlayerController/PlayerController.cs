@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _cam = GetComponentInChildren<Camera>();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void LateUpdate()
@@ -50,7 +53,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // To make jumping and falling feel less floatly, we add a multiplier to the downward fall of every jump / leap
-        if (_rb.linearVelocity.y < -0.1f)
+        if (_rb.linearVelocity.y < -0.01f)
         {
             // Gravity is still being applied by the rb, so we remove a factor of 1x to not double up on gravity
             _rb.AddForce((_fallMultiplier - 1.0f) * Physics2D.gravity.y * Vector3.up);
