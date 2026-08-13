@@ -660,14 +660,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1411651179}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
+        m_MethodName: SetTrigger
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OpenDoor
           m_BoolArgument: 0
         m_CallState: 2
   _highlightNear: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -743,8 +743,8 @@ Transform:
   - {fileID: 1048273506}
   - {fileID: 1114072170}
   - {fileID: 1411651178}
-  - {fileID: 1693562634}
   - {fileID: 925926870}
+  - {fileID: 841665637}
   m_Father: {fileID: 1008134833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
@@ -825,11 +825,11 @@ Transform:
   m_GameObject: {fileID: 841665636}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1735, y: 0, z: 0}
-  m_LocalScale: {x: 0.040512, y: 0.2615355, z: 0.1}
+  m_LocalPosition: {x: -0.17350027, y: 2, z: -1.0500001}
+  m_LocalScale: {x: 0.040512, y: 0.2615355, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1693562634}
+  m_Father: {fileID: 802149377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &841665638
 MonoBehaviour:
@@ -2283,7 +2283,7 @@ Animator:
   m_GameObject: {fileID: 1411651177}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02aecf5794edc20439a3975cc098e9f2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2490,38 +2490,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529611858}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1693562633
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1693562634}
-  m_Layer: 0
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1693562634
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693562633}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -1.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 841665637}
-  m_Father: {fileID: 802149377}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737538111
 GameObject:
   m_ObjectHideFlags: 0
