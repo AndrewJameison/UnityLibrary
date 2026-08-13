@@ -87,7 +87,7 @@ public class Structure : MonoBehaviour, IInteractable
         {
             _highlightMat.color = _highlightColor;
 
-            _highlightMat.SetFloat("_Thickness", _highlightSize);
+            _highlightMat.SetFloat("_Thickness", 1.05f);
         }
     }
 
