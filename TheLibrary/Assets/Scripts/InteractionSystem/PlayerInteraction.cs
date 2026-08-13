@@ -1,17 +1,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.UI;
 
 /// <summary>
 /// Finds objects within range that can be interacted with and marks them as the Target
 /// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
+    private int _ignorePlayerMask;
     private float _interactRange;
 
     private IEnumerator _co;
 
-    private int _ignorePlayerMask;
+
+    [SerializeField]
+    private Image _progressBar;
 
     public void Awake()
     {
@@ -48,10 +52,6 @@ public class PlayerInteraction : MonoBehaviour
                     {
                         //AudioManager.Instance.Play(IInteractable.Target.SuccessSFX, transform.position);
 
-                        if (Time.timeScale == 0.0f)
-                        {
-                            Empty();
-                        }
                     }
                     else
                     {
@@ -101,16 +101,22 @@ public class PlayerInteraction : MonoBehaviour
     /// <returns></returns>
     private IEnumerator PressAndHold(float holdTime)
     {
-        yield return new WaitForSeconds(holdTime);
+        float progressTime = 0f;
+
+        while (progressTime < holdTime)
+        {
+            progressTime += Time.deltaTime;
+
+            _progressBar.fillAmount = progressTime / holdTime;
+
+            yield return null;
+        }
+
+        _progressBar.fillAmount = 0f;
 
         if (IInteractable.Target.Interact())
         {
             //AudioManager.Instance.Play(IInteractable.Target.SuccessSFX, transform.position);
-
-            if (Time.timeScale == 0.0f)
-            {
-                Empty();
-            }
         }
         else
         {
@@ -159,6 +165,12 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        // Make sure that we are not accessing any objects when moving between scenes
+        Empty();
+    }
+
     void OnTriggerStay(Collider other)
     {
         IInteractable obj = other.GetComponentInParent<IInteractable>();
@@ -181,9 +193,6 @@ public class PlayerInteraction : MonoBehaviour
         IInteractable obj = other.GetComponentInParent<IInteractable>();
 
         // Removes the highlight when far enough away
-        if (obj != null)
-        {
-            obj.RemoveHighlight();
-        }
+        obj?.RemoveHighlight();
     }
 }
